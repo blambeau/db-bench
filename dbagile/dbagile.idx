@@ -1,0 +1,12 @@
+--- 
+version: 0.0.2
+backends: {}
+databases: 
+  activerecord: 
+    uri: postgres://dbbench@localhost/dbbench-ar
+    announced_schema: 
+    - announced.yaml
+    - activerecord_announced.yaml
+    effective_schema: 
+    - activerecord_effective.yaml
+current: "activerecord"

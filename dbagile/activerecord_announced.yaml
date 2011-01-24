@@ -1,0 +1,7 @@
+--- 
+logical: {}
+--- 
+physical: 
+  indexes: 
+    index_albums_on_performer_id: {relvar: albums, attributes: [performer_id]}
+    index_tracks_on_album_id:     {relvar: tracks, attributes: [album_id]}
