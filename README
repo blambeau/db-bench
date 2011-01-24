@@ -2,6 +2,34 @@
 
 This project aims at comparing different approaches to database management
 
+## The model
+
+The benchmarking case-study is a CD collection. See dbagile/announced.yaml for a relational
+model.
+
+## Challenges
+
+### Challenge n°1
+
+Display the list of all performers (relatively small table), in any order. Each line should be
+of the following form:
+
+    #{id}: #{first_name} #{last_name}
+
+### Challenge n°2
+
+Display the list of all tracks (relatively big table), in any order. Each line should be
+of the following form:
+
+    #{id}: #{title}
+
+### Challenge n°3
+
+Display the title of each album, together with the name of the performer. Each line should be
+of the following form:
+
+    #{title}: #{first_name} #{last_name}
+
 ## Active record
 
 The active records benchmarks have been built according information found on the following websites:

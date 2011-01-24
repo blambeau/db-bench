@@ -3,7 +3,7 @@ class DbBench::DbAgile::Challenge2 < DbBench::Challenge
   def print_all
     DbBench::DbAgile.with_current_connection do |db|
       db.dataset(:tracks).each{|track|
-        "#{track[:id]} - #{track[:title]}"
+        output("#{track[:id]}: #{track[:title]}")
       }
     end
   end

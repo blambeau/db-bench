@@ -32,6 +32,10 @@ module DbBench
       end
     end
     
+    def output(str)
+      #puts str
+    end
+    
     def measure(times = 50)
       tms = (1..times).inject(Benchmark::Tms.new){|tms,i|
         tms + Benchmark.measure{ yield }

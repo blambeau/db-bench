@@ -12,7 +12,7 @@ class DbBench::DbAgile::Challenge3 < DbBench::Challenge
   def print_all
     DbBench::DbAgile.with_current_connection do |db|
       db.dataset(SQL).each{|tuple|
-        "#{tuple[:title]} by #{tuple[:first_name]}, #{tuple[:last_name]}"
+        output("#{tuple[:title]} by #{tuple[:first_name]} #{tuple[:last_name]}")
       }
     end
   end

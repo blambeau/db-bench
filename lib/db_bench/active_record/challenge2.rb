@@ -1,11 +1,15 @@
 class DbBench::ActiveRecord::Challenge2 < DbBench::Challenge
   
   def find_all
-    Track.find(:all).each{|track| "#{track.id} - #{track.title}"}
+    Track.find(:all).each{|track| 
+      output("#{track.id}: #{track.title}")
+    }
   end
   
   def find_each
-    Track.find_each{|track| "#{track.id} - #{track.title}"}
+    Track.find_each{|track| 
+      output("#{track.id}: #{track.title}")
+    }
   end  
   
   def run(measures)
