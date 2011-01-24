@@ -27,9 +27,42 @@ module DbBench
         }
       end
       
-      def challenge5(id = Kernel.rand(album_count))
+      def challenge5
+        Album.find_each{|album|
+          output(album.title, album.performer.first_name, album.performer.last_name, album.tracks.count)
+        }
+      end
+      
+      def challenge101(id = Kernel.rand(performer_count))
+        perf = Performer.find(id)
+        output(perf.id, perf.first_name, perf.last_name)
+      end
+      
+      def challenge102(id = Kernel.rand(track_count))
+        track = Track.find(id)
+        output(track.id, track.title)
+      end
+      
+      def challenge103(id = Kernel.rand(album_count))
+        album = Album.find(id)
+        output(album.title, album.performer.first_name, album.performer.last_name)
+      end
+      
+      def challenge104(id = Kernel.rand(album_count))
         album = Album.find(id)
         output(album.title, album.tracks.count)
+      end
+      
+      def challenge105(id = Kernel.rand(album_count))
+        album = Album.find(id)
+        output(album.title, album.performer.first_name, album.performer.last_name, album.tracks.count)
+      end
+      
+      def challenge201(id = Kernel.rand(album_count))
+        album = Album.find(id)
+        album.tracks.each{|track|
+          output(track.position, track.title)
+        }
       end
       
     end # class Naive

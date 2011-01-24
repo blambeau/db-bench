@@ -39,14 +39,42 @@ module DbBench
       end
       
       def execute(args)
-        if args.size == 1
-          compare_one(args.first.to_i)
-        else
-          (1..5).each{|i| compare_one(i)}
-        end
+        args = Challenger::CHALLENGES if args.size == 0
+        args.each{|arg| compare_one(arg.to_i) }
       end
       
     end # class Compare
+    
+    #
+    # Compete the different challengers
+    #
+    class Compete < Quickl::Command(__FILE__, __LINE__)
+      
+      def compete_one(i)
+        puts "-"*150
+        puts "Running challenge#{i}"
+        Challenger.each{|challenger|
+          challenger.setup
+          tms, nb = Benchmark::Tms.new, 0
+          while tms.total <= 1.0
+            tms += Benchmark.measure{
+              challenger.send(:"challenge#{i}")
+            }
+            nb += 1
+          end
+          puts "%-30s %-5s %s [%s]" % [challenger.name, nb, (tms/nb).to_s.strip, (tms.total)]
+          challenger.teardown
+        }
+        puts
+        puts
+      end
+      
+      def execute(args)
+        args = Challenger::CHALLENGES if args.size == 0
+        args.each{|arg| compete_one(arg.to_i) }
+      end
+      
+    end # class Compete
     
   end # class Main
 

@@ -1,6 +1,12 @@
 module DbBench
   class Challenger
     
+    CHALLENGES = [
+      1, 2, 3, 4, 5,
+      101, 102, 103, 104, 105,
+      201
+    ]
+    
     def self.inherited(subclass)
       @challengers ||= []
       @challengers << subclass
@@ -28,16 +34,22 @@ module DbBench
       500
     end
     
+    def performer_count
+      35
+    end
+    
+    def track_count
+      5000
+    end
+    
     def output(*args)
     end
     
     def run_all_once
       setup
-      challenge1
-      challenge2
-      challenge3
-      challenge4
-      challenge5
+      CHALLENGES.each{|i|
+        self.send(:"challenge#{i}")
+      }
       teardown
     end
     
