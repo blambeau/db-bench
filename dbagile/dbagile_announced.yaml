@@ -6,5 +6,29 @@ logical:
   tracks: 
     constraints: 
       track_belongs_to_album:   { type: foreign_key, references: albums, attributes: [album_id] }
+  challenge3:
+    SELECT A.id as id, 
+           A.title as title,
+           P.first_name as first_name,
+           P.last_name as last_name
+      FROM albums as A INNER JOIN performers as P
+        ON A.performer_id = P.id
+  challenge4:
+    SELECT A.id as id, 
+           A.title as title,
+           (SELECT count(*) 
+              FROM tracks as T
+             WHERE T.album_id = A.id) as nb_tracks
+      FROM albums as A
+  challenge5:
+    SELECT A.id as id, 
+           A.title as title,
+           (SELECT count(*) 
+              FROM tracks as T
+             WHERE T.album_id = A.id) as nb_tracks
+      FROM albums as A
 --- 
-physical: {}
+physical: 
+  indexes: 
+    index_albums_on_performer_id: {relvar: albums, attributes: [performer_id]}
+    index_tracks_on_album_id:     {relvar: tracks, attributes: [album_id]    }

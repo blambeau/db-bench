@@ -36,6 +36,7 @@ task :datadump do
   shell %q{ dba bulk:export --csv --type-safe tracks     --output=dbagile/data/tracks.csv     }
 end
 
-task :run do
-  shell %q{ ruby -I. -Ilib lib/run_all.rb}
+task :run_all_once do
+  require "db_bench"
+  DbBench::Challenger::run_all_once
 end

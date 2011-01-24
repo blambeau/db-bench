@@ -5,6 +5,6 @@ require 'benchmark'
 module DbBench
   
 end # module DbBench
-require "db_bench/challenge"
+require "db_bench/challenger"
 require "db_bench/active_record"
 require "db_bench/dbagile"

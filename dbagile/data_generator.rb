@@ -30,7 +30,7 @@ class DataGenerator < Quickl::Command(__FILE__, __LINE__)
   
   # Install command options
   options do |opt|
-    @nb_performers = 55
+    @nb_performers = 35
     @nb_albums = 500
     @min_tracks = 5
     @max_tracks = 16
