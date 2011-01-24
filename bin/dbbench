@@ -1,0 +1,54 @@
+#!/usr/bin/env ruby -rrubygems
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+require 'quickl'
+require "benchmark"
+require "db_bench"
+module DbBench
+
+  #
+  # BbBench - Let's compare our database approaches
+  #
+  class Main < Quickl::Delegate(__FILE__, __LINE__)
+
+    #
+    # Compare the execution of the different challengers
+    #
+    class Compare < Quickl::Command(__FILE__, __LINE__)
+      
+      options do |opt|
+        @repeat = 1
+        opt.on("--repeat=X", Integer){|i| @repeat = i}
+      end
+      
+      def compare_one(i)
+        puts "-"*150
+        puts "Running challenge#{i}"
+        Benchmark.bm(30){|x|
+          Challenger.each{|challenger|
+            challenger.setup
+            x.report(challenger.name) {
+              @repeat.times do 
+                challenger.send(:"challenge#{i}")
+              end
+            }
+            challenger.teardown
+          }
+        }
+        puts
+        puts
+      end
+      
+      def execute(args)
+        if args.size == 1
+          compare_one(args.first.to_i)
+        else
+          (1..5).each{|i| compare_one(i)}
+        end
+      end
+      
+    end # class Compare
+    
+  end # class Main
+
+end # module DbBench
+DbBench::Main.run(ARGV)

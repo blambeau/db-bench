@@ -6,12 +6,22 @@ module DbBench
       @challengers << subclass
     end
     
+    def self.each
+      @challengers.each{|subclass|
+        yield(subclass.new) 
+      }
+    end
+    
     def self.run_all_once
       @challengers.each{|subclass|
         puts "Running all_one on #{subclass}"
         challenger = subclass.new
         challenger.run_all_once
       }
+    end
+    
+    def name
+      self.class.name.split('::')[1..-1].join('::')
     end
     
     def album_count
