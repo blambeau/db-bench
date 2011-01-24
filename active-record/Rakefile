@@ -1,4 +1,0 @@
-task :install do
-  require File.expand_path('../install', __FILE__)
-  require File.expand_path('../append', __FILE__)
-end
