@@ -1,0 +1,10 @@
+--- 
+logical: 
+  albums: 
+    constraints: 
+      albums_has_one_performer: { type: foreign_key, references: performers, attributes: [performer_id] }
+  tracks: 
+    constraints: 
+      track_belongs_to_album:   { type: foreign_key, references: albums, attributes: [album_id] }
+--- 
+physical: {}

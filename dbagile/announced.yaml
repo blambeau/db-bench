@@ -6,14 +6,14 @@ logical:
       first_name:    { domain: String  }
       last_name:     { domain: String  }
     constraints:
-      performers_pk: { type: :primary_key, attributes: [id] }
+      performers_pk: { type: primary_key, attributes: [id] }
   albums: 
     heading: 
       id:           { domain: Integer }
       title:        { domain: String  }
       performer_id: { domain: Integer }
     constraints: 
-      albums_pk:    { type: :primary_key, attributes: [id] }
+      albums_pk:    { type: primary_key, attributes: [id] }
   tracks: 
     heading: 
       id:           { domain: Integer }
@@ -22,6 +22,6 @@ logical:
       title:        { domain: String  }
       votes:        { domain: Integer, default: 0 }
     constraints: 
-      tracks_pk:    {type: :primary_key, attributes: [id] }
+      tracks_pk:    {type: primary_key, attributes: [id] }
 --- 
 physical: {}

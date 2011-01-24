@@ -3,7 +3,7 @@ require 'active_record'
 # Connection config
 config = {
   adapter:  "postgresql",
-  database: "dbbench-ar",
+  database: "dbbench-activerecord",
   username: "dbbench",
   password: "dbbench",
   host:     "localhost"
