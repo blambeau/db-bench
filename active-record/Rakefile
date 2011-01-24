@@ -1,14 +1,4 @@
-require "benchmark"
 task :install do
   require File.expand_path('../install', __FILE__)
-end
-task :append do
-  Benchmark.bm do |x|
-    x.report { require File.expand_path('../append', __FILE__) }
-  end
-end
-task :display do
-  Benchmark.bm do |x|
-    x.report { require File.expand_path('../display', __FILE__) }
-  end
+  require File.expand_path('../append', __FILE__)
 end
