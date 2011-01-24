@@ -16,3 +16,4 @@ end # module DbBench
 require "db_bench/dbagile/challenge1"
 require "db_bench/dbagile/challenge2"
 require "db_bench/dbagile/challenge3"
+require "db_bench/dbagile/challenge4"

@@ -30,6 +30,13 @@ of the following form:
 
     #{title}: #{first_name} #{last_name}
 
+### Challenge n°4
+
+Display the title of each album, together with the number of tracks. Each line should be
+of the following form:
+
+    #{title}: #{tracks_count}
+
 ## Active record
 
 The active records benchmarks have been built according information found on the following websites:

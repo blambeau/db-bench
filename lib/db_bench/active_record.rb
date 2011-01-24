@@ -29,3 +29,4 @@ end
 require "db_bench/active_record/challenge1"
 require "db_bench/active_record/challenge2"
 require "db_bench/active_record/challenge3"
+require "db_bench/active_record/challenge4"
