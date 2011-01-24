@@ -1,0 +1,15 @@
+## Active record
+
+# Preliminary work
+
+    sudo su postgres -c 'createuser dbbench --no-superuser --no-createdb --no-createrole'
+    sudo su postgres -c 'createdb --owner=dbbench --encoding=utf8 dbbench-ar'
+
+# References
+
+http://snippets.dzone.com/posts/show/3097
+http://www.sanecode.com/2010/10/activerecord-disable-colorize_logging/
+http://guides.rubyonrails.org/active_record_querying.html#eager-loading-associations
+https://github.com/cesario/no_querying_views
+http://blog.joyofthink.com/yangchen/blog1.php/2010/06/14/activerecord-without-rails
+http://blog.aizatto.com/2007/05/21/activerecord-without-rails/
